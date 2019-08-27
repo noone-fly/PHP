@@ -24,12 +24,11 @@ public static void main(String[] args) throws ClientProtocolException, IOExcepti
 CloseableHttpClient httpClient = HttpClients.createDefault();
 HttpPost httpPost = new HttpPost("https://api.agora.io/dev/v1/kicking-rule"); //踢人地址
 
-// customerID:customer Certificate--->访问的用户名，密码,并使用base64进行加密，将加密的字节信息转化为string类型，encoding--->token
 String encoding = DatatypeConverter.printBase64Binary("<your customerID>:<your customer certificate>".getBytes("UTF-8"));
 List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>();
-nameValuePair.add(new BasicNameValuePair("appid","fd33b96dc23c417fa***********")); //你的app ID
-nameValuePair.add(new BasicNameValuePair("cname","147258")); //频道号
-nameValuePair.add(new BasicNameValuePair("uid","258435777")); //需要踢的uid
+nameValuePair.add(new BasicNameValuePair("appid","<appid>")); //你的app ID
+nameValuePair.add(new BasicNameValuePair("cname","<频道号>")); //频道号
+nameValuePair.add(new BasicNameValuePair("uid","<uid>")); //需要踢的uid
 nameValuePair.add(new BasicNameValuePair("ip","")); // 如果不根据IP来封人，就填空
 nameValuePair.add(new BasicNameValuePair("time","5")); //封人时间
 
